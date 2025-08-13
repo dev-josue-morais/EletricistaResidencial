@@ -18734,7 +18734,7 @@ const Hn = ({href: e, children: t, scrollTo: n, setMenuOpen: r}) => g.jsx("a", {
     answer: "Sim! Oferecemos atendimento 24 horas para emergências elétricas em Caldas Novas e região."
 }, {
     question: "O orçamento é gratuito?",
-    answer: "Sim, fazemos orçamentos gratuitos para todos os tipos de serviços elétricos."
+    answer: "Sim, Orçamentos sao gratuitos, exceto em casos que exigem reparo ou avaliação prática."
 }, {
     question: "Vocês trabalham com garantia?",
     answer: "Todos os nossos serviços possuem garantia. A garantia varia conforme o tipo de serviço realizado."
@@ -18743,7 +18743,7 @@ const Hn = ({href: e, children: t, scrollTo: n, setMenuOpen: r}) => g.jsx("a", {
     answer: "Não! Atendemos residências, prédios, comércios e indústrias em Caldas Novas e região."
 }, {
     question: "Qual a forma de pagamento?",
-    answer: "Aceitamos dinheiro, PIX, cartão de débito e crédito. Parcelamento disponível para serviços maiores."
+    answer: "Dinheiro, PIX e cartões aceitos. À vista: 4% de desconto. Parcelamento sujeito a juros."
 }]
   , RE = () => g.jsx("section", {
     id: "faq",
@@ -19028,7 +19028,7 @@ function bE() {
                 children: "Eletricista em Caldas Novas GO - EletriCaldas - Serviços Elétricos"
             }), g.jsx("meta", {
                 name: "description",
-                content: "Eletricista profissional em Caldas Novas GO. Instalações, manutenção elétrica, painéis de disjuntores. Atendimento 24h. Orçamento grátis!"
+                content: "Eletricista profissional em Caldas Novas GO. Instalações, manutenção elétrica, painéis de disjuntores. Atendimento 24h. Serviços residenciais e comerciais. Atendimento rápido e Orçamento grátis!"
             }), g.jsx("meta", {
                 name: "keywords",
                 content: "eletricista caldas novas, eletricista goias, eletricaldas, instalação elétrica, manutenção elétrica, painel disjuntor, emergência elétrica"
