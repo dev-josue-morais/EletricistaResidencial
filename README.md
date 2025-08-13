@@ -32,4 +32,4 @@ O site pode ser publicado usando GitHub Pages:
 1. Vá nas **Configurações do repositório → Pages**
 2. Escolha a branch `main` e a pasta `/` (raiz)
 3. Clique em **Salvar** e aguarde alguns minutos
-4. O site estará disponível em `https://<seu-usuario>.github.io/<nome-do-repositorio>/`
+4. O site estará disponível em `https://dev-josue-morais.github.io/EletricistaResidencial/`
