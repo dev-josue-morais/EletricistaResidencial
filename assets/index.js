@@ -18975,7 +18975,7 @@ const Hn = ({ href: e, children: t, scrollTo: n, setMenuOpen: r }) => g.jsx("a",
                     }), g.jsxs("ul", {
                         className: "space-y-2 text-gray-400",
                         children: [g.jsx("li", {
-                            children: "(64) 99286-9608"
+                            children: "+5564992869608"
                         }), g.jsx("li", {
                             children: "Caldas Novas, Goiás"
                         }), g.jsx("li", {
