@@ -6,13 +6,44 @@
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-34GW7YSWYZ"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-34GW7YSWYZ"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
+	function gtag() { dataLayer.push(arguments); }
+	gtag('js', new Date());
 
-		gtag('config', 'G-34GW7YSWYZ');
-		gtag('config', 'AW-16982045139');
-	</script>
+	gtag('config', 'G-34GW7YSWYZ');
+	gtag('config', 'AW-16982045139');
+
+	function gtag_conversion_cotacao(url) {
+		var callback = function () {
+			if (typeof(url) !== 'undefined') {
+				window.location = url;
+			}
+		};
+		gtag('event', 'conversion', {
+			'send_to': 'AW-16982045139/1o2gCIWM94UbENPj1aE_',
+			'value': 1.0,
+			'currency': 'BRL',
+			'event_callback': callback
+		});
+		return false;
+	}
+
+	function gtag_conversion_ligacao(url) {
+		var callback = function () {
+			if (typeof(url) !== 'undefined') {
+				window.location = url;
+			}
+		};
+		gtag('event', 'conversion', {
+			'send_to': 'AW-16982045139/M_BMCMq79oUbENPj1aE_',
+			'value': 1.0,
+			'currency': 'BRL',
+			'event_callback': callback
+		});
+		return false;
+	}
+</script>
+
 	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 	<meta name="generator" content="Hostinger Horizons" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />

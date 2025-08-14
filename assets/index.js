@@ -19009,11 +19009,28 @@ const Hn = ({href: e, children: t, scrollTo: n, setMenuOpen: r}) => g.jsx("a", {
 });
 function bE() {
     const e = "64992869608"
+    , gtag_conversion_cotacao = () => {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16982045139/1o2gCIWM94UbENPj1aE_',
+            'value': 1.0,
+            'currency': 'BRL'
+        });
+    }
+
+    , gtag_conversion_ligacao = () => {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-16982045139/M_BMCMq79oUbENPj1aE_',
+            'value': 1.0,
+            'currency': 'BRL'
+        });
+    }
       , t = () => {
+        gtag_conversion_cotacao();
         window.open(`https://wa.me/55${e}?text=Olá! Gostaria de solicitar um orçamento para serviços elétricos.`, "_blank")
     }
       , n = () => {
-        window.open(`tel:+55${e}`, "_self")
+        gtag_conversion_ligacao(); 
+        window.open(`tel:+55${e}`)
     }
       , r = o => {
         const i = document.getElementById(o);
