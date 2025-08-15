@@ -18296,14 +18296,25 @@ const Hn = ({ href: e, children: t, scrollTo: n, setMenuOpen: r }) => g.jsx("a",
                             opacity: 1,
                             x: 0
                         },
-                        className: "hidden md:flex items-center space-x-4",
-                        children: g.jsxs(wt, {
-                            onClick: e,
-                            className: "cta-button text-white",
-                            children: [g.jsx(un, {
-                                className: "w-4 h-4 mr-2"
-                            }), "WhatsApp"]
-                        })
+                        className: "flex items-center space-x-2",
+                        children: [
+  // Botão MOBILE: só ícone
+  g.jsx(wt, {
+    onClick: e,
+    className: "cta-button text-white md:hidden",
+    children: g.jsx(un, { className: "w-5 h-5" })
+  }),
+
+  // Botão DESKTOP: ícone + texto
+  g.jsxs(wt, {
+    onClick: e,
+    className: "cta-button text-white hidden md:flex",
+    children: [
+      g.jsx(un, { className: "w-4 h-4 mr-2" }),
+      "WhatsApp"
+    ]
+  })
+]
                     }), g.jsx("div", {
                         className: "md:hidden",
                         children: g.jsx("button", {
