@@ -33,3 +33,17 @@ O site pode ser publicado usando GitHub Pages:
 2. Escolha a branch `main` e a pasta `/` (raiz)
 3. Clique em **Salvar** e aguarde alguns minutos
 4. O site estará disponível em [Eletricista Residencial](https://dev-josue-morais.github.io/EletricistaResidencial/)
+
+## Código-fonte e build
+
+O código-fonte React fica em `source/` (organizado em `src/components`, `src/sections`, `src/data`, `src/config`, `src/services`, `src/hooks`, `src/utils`, `src/styles`).
+Os arquivos publicados (`index.html` e `assets/*.js|css`) são gerados na raiz pelo build:
+
+```bash
+cd source
+yarn install
+yarn build     # gera ../index.html, ../assets/index.js, ../assets/vendor.js, ../assets/vendor-react.js, ../assets/index.css
+yarn preview   # visualiza a versão publicada localmente
+```
+
+Após o build, faça commit dos arquivos gerados — o GitHub Pages continua publicando a branch `main`, pasta `/` (raiz).
