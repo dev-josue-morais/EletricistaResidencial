@@ -9,6 +9,7 @@ import Testimonials from '@/sections/Testimonials';
 import Faq from '@/sections/Faq';
 import Contact from '@/sections/Contact';
 import { Toaster } from '@/components/ui/toaster';
+import CookieBanner from '@/components/consent/CookieBanner';
 import { openWhatsApp, callPhone } from '@/services/contact';
 import { scrollToSection } from '@/utils/scroll';
 
@@ -28,6 +29,7 @@ function App() {
 				</main>
 				<Footer onWhatsAppClick={openWhatsApp} onPhoneClick={callPhone} scrollTo={scrollToSection} />
 				<Toaster />
+				<CookieBanner />
 			</div>
 		</>
 	);

@@ -1,5 +1,6 @@
 /* global gtag */
 import { getAdClick } from '@/services/adAttribution';
+import { sendLeadToSheet } from '@/services/leadSheet';
 import { GA4_MEASUREMENT_ID, CONVERSION_COTACAO, CONVERSION_LIGACAO, CONVERSION_CURRENCY, LEAD_EVENT } from '@/config/analytics';
 
 const trackConversion = (sendTo) => {
@@ -21,6 +22,7 @@ const trackLead = (method, location) => {
 		...attribution
 	});
 	window.dataLayer.push({ event: LEAD_EVENT, lead_method: method, lead_location: location, ...attribution });
+	if (adClick) sendLeadToSheet({ lead_method: method, lead_location: location, ...attribution });
 };
 
 export const trackCotacaoConversion = (location) => {

@@ -7,6 +7,7 @@ import PhoneLink from '@/components/common/PhoneLink';
 import { footerLinks } from '@/data/navigation';
 import { businessHours } from '@/data/businessHours';
 import { PHONE_DISPLAY, PHONE_INTERNATIONAL, LOCATION } from '@/config/contact';
+import { openConsentPreferences } from '@/services/consent';
 
 const FooterColumn = ({ title, children }) => (
 	<div>
@@ -59,6 +60,9 @@ const Footer = ({ onWhatsAppClick, onPhoneClick, scrollTo }) => (
 
 			<div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
 				<p>© 2024 EletriCaldas. Todos os direitos reservados. Eletricista em Caldas Novas, Goiás.</p>
+				<button type="button" className="cookie-preferences-link" onClick={openConsentPreferences} data-testid="cookie-preferences-link">
+					Preferências de cookies
+				</button>
 			</div>
 		</div>
 	</footer>

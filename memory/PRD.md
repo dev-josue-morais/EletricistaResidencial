@@ -25,3 +25,9 @@ assets/index.js (~19 mil linhas, bundle Vite compilado/formatado) sem código-fo
 - lead_code, ad_click_id, ad_click_type enviados no generate_lead (GA4) e lead_click (dataLayer)
 - Rodapé exibe (64) 99286-9608
 - Pendente (usuário): dimensões personalizadas no GA4, ação de conversão "Importar cliques" no Ads
+
+## Planilha + LGPD (iteração 4)
+- Consent Mode v2 no index.html (padrão negado, url_passthrough, ads_data_redaction), banner Aceitar/Recusar, link "Preferências de cookies" no rodapé
+- gclid só é gravado/código só é gerado com consentimento
+- services/leadSheet.js envia via sendBeacon para Apps Script (source/integrations/google-sheets/Code.gs); LEAD_SHEET_URL em src/config/integrations.js (vazio = desligado)
+- Pendente (usuário): implantar Apps Script e enviar URL; página de Política de Privacidade

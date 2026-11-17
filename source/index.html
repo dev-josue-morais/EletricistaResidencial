@@ -3,6 +3,25 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<!-- Modo de consentimento do Google (LGPD): deve vir antes do Tag Manager e do gtag. Chave igual a src/config/consent.js -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		(function () {
+			var choice = null;
+			try { choice = JSON.parse(localStorage.getItem('ec_consent')); } catch (e) { }
+			var value = choice && choice.status === 'granted' ? 'granted' : 'denied';
+			gtag('consent', 'default', {
+				ad_storage: value,
+				ad_user_data: value,
+				ad_personalization: value,
+				analytics_storage: value,
+				wait_for_update: 500
+			});
+			gtag('set', 'url_passthrough', true);
+			gtag('set', 'ads_data_redaction', value === 'denied');
+		})();
+	</script>
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
