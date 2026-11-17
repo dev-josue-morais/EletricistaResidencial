@@ -1,5 +1,0 @@
-export const GA4_MEASUREMENT_ID = 'G-34GW7YSWYZ';
-export const CONVERSION_COTACAO = 'AW-16982045139/1o2gCIWM94UbENPj1aE_';
-export const CONVERSION_LIGACAO = 'AW-16982045139/M_BMCMq79oUbENPj1aE_';
-export const CONVERSION_CURRENCY = 'BRL';
-export const LEAD_EVENT = 'lead_click';
