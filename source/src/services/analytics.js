@@ -1,4 +1,5 @@
 /* global gtag */
+import { getAdClick } from '@/services/adAttribution';
 import { GA4_MEASUREMENT_ID, CONVERSION_COTACAO, CONVERSION_LIGACAO, CONVERSION_CURRENCY, LEAD_EVENT } from '@/config/analytics';
 
 const trackConversion = (sendTo) => {
@@ -11,12 +12,15 @@ const trackConversion = (sendTo) => {
 
 // Informa ao GA4 e ao Tag Manager qual botão gerou o contato.
 const trackLead = (method, location) => {
+	const adClick = getAdClick();
+	const attribution = adClick ? { lead_code: adClick.code, ad_click_id: adClick.id, ad_click_type: adClick.type } : {};
 	gtag('event', 'generate_lead', {
 		'send_to': GA4_MEASUREMENT_ID,
 		'lead_method': method,
-		'lead_location': location
+		'lead_location': location,
+		...attribution
 	});
-	window.dataLayer.push({ event: LEAD_EVENT, lead_method: method, lead_location: location });
+	window.dataLayer.push({ event: LEAD_EVENT, lead_method: method, lead_location: location, ...attribution });
 };
 
 export const trackCotacaoConversion = (location) => {

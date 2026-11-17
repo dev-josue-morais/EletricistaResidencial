@@ -18,3 +18,10 @@ assets/index.js (~19 mil linhas, bundle Vite compilado/formatado) sem código-fo
 - Número da seção Contato e do rodapé clicáveis (tel:)
 - Botões de ligar discam o número exibido em [data-phone-display] (compatível com número de encaminhamento do Google Ads)
 - Pendente (usuário): criar tag "Chamadas do site" no GTM com número "(64) 99286-9608"
+
+## Venda fechada + rodapé (iteração 3)
+- services/adAttribution.js: captura gclid/gbraid/wbraid (localStorage ec_ad_click, 90 dias), gera código EC-XXXXXX
+- Mensagem WhatsApp recebe " Código: EC-XXXXXX" somente para visitantes vindos de anúncio
+- lead_code, ad_click_id, ad_click_type enviados no generate_lead (GA4) e lead_click (dataLayer)
+- Rodapé exibe (64) 99286-9608
+- Pendente (usuário): dimensões personalizadas no GA4, ação de conversão "Importar cliques" no Ads

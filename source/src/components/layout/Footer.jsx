@@ -6,7 +6,7 @@ import FooterLink from '@/components/layout/FooterLink';
 import PhoneLink from '@/components/common/PhoneLink';
 import { footerLinks } from '@/data/navigation';
 import { businessHours } from '@/data/businessHours';
-import { PHONE_INTERNATIONAL, LOCATION } from '@/config/contact';
+import { PHONE_DISPLAY, PHONE_INTERNATIONAL, LOCATION } from '@/config/contact';
 
 const FooterColumn = ({ title, children }) => (
 	<div>
@@ -44,7 +44,7 @@ const Footer = ({ onWhatsAppClick, onPhoneClick, scrollTo }) => (
 
 				<FooterColumn title="Contato">
 					<li>
-						<PhoneLink onPhoneClick={onPhoneClick} location="rodape_numero" href={`tel:${PHONE_INTERNATIONAL}`}>{PHONE_INTERNATIONAL}</PhoneLink>
+						<PhoneLink onPhoneClick={onPhoneClick} location="rodape_numero" href={`tel:${PHONE_INTERNATIONAL}`}>{PHONE_DISPLAY}</PhoneLink>
 					</li>
 					<li>{LOCATION}</li>
 					<li>Atendimento 24 horas</li>
