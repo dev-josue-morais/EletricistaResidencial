@@ -35,5 +35,5 @@ assets/index.js (~19 mil linhas, bundle Vite compilado/formatado) sem código-fo
 ## Política de Privacidade (iteração 5)
 - privacidade.html gerado no build (mesmo bundle, body data-page="privacidade"); pages/Home.jsx e pages/PrivacyPolicy.jsx; texto em data/privacyPolicy.js
 - Links: rodapé ("Política de Privacidade" + "Preferências de cookies") e aviso de cookies
-- Planilha: aguardando usuário criar Apps Script e enviar URL /exec
+- Planilha LIGADA: URL Apps Script configurada em src/config/integrations.js (testado: ok/duplicate/ignored)
 - Observação: container GTM dispara GA4 extras (G-3RM56F8D4X, G-Y20R1VWPS6) — possível contagem duplicada
