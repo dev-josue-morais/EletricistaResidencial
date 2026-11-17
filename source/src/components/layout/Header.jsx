@@ -25,11 +25,11 @@ const Header = ({ onWhatsAppClick, scrollTo }) => {
 
 					<motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center space-x-2">
 						{/* Botão MOBILE: só ícone */}
-						<Button onClick={onWhatsAppClick} className="cta-button text-white md:hidden">
+						<Button onClick={() => onWhatsAppClick('header_icone')} className="cta-button text-white md:hidden">
 							<MessageCircle className="w-5 h-5" />
 						</Button>
 						{/* Botão DESKTOP: ícone + texto */}
-						<Button onClick={onWhatsAppClick} className="cta-button text-white hidden md:flex">
+						<Button onClick={() => onWhatsAppClick('header')} className="cta-button text-white hidden md:flex">
 							<MessageCircle className="w-4 h-4 mr-2" />
 							WhatsApp
 						</Button>
@@ -49,7 +49,7 @@ const Header = ({ onWhatsAppClick, scrollTo }) => {
 						{headerLinks.map((link) => (
 							<NavLink key={link.href} href={link.href} scrollTo={scrollTo} setMenuOpen={setMenuOpen}>{link.label}</NavLink>
 						))}
-						<Button onClick={onWhatsAppClick} className="cta-button text-white w-full max-w-xs mx-auto">
+						<Button onClick={() => onWhatsAppClick('menu_mobile')} className="cta-button text-white w-full max-w-xs mx-auto">
 							<MessageCircle className="w-4 h-4 mr-2" />
 							WhatsApp
 						</Button>

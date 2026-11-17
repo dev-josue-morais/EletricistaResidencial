@@ -2,15 +2,26 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { PHONE_DISPLAY, LOCATION } from '@/config/contact';
+import PhoneLink from '@/components/common/PhoneLink';
+import { PHONE_DISPLAY, PHONE_INTERNATIONAL, LOCATION } from '@/config/contact';
+import { PHONE_DISPLAY_ATTR } from '@/services/contact';
 
-const contactItems = [
-	{ Icon: Phone, text: PHONE_DISPLAY },
-	{ Icon: MessageCircle, text: 'WhatsApp disponível 24h' },
-	{ Icon: MapPin, text: LOCATION },
-];
+const Contact = ({ onWhatsAppClick, onPhoneClick }) => {
+	const contactItems = [
+		{
+			Icon: Phone,
+			key: 'telefone',
+			text: (
+				<PhoneLink onPhoneClick={onPhoneClick} location="contato_numero" href={`tel:${PHONE_INTERNATIONAL}`} {...{ [PHONE_DISPLAY_ATTR]: '' }}>
+					{PHONE_DISPLAY}
+				</PhoneLink>
+			),
+		},
+		{ Icon: MessageCircle, key: 'whatsapp', text: 'WhatsApp disponível 24h' },
+		{ Icon: MapPin, key: 'local', text: LOCATION },
+	];
 
-const Contact = ({ onWhatsAppClick, onPhoneClick }) => (
+	return (
 	<section id="contato" className="py-20 bg-green-600">
 		<div className="container mx-auto px-4">
 			<div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -20,19 +31,19 @@ const Contact = ({ onWhatsAppClick, onPhoneClick }) => (
 						Entre em contato conosco agora mesmo e solicite seu orçamento gratuito. Atendemos 24 horas para emergências!
 					</p>
 					<div className="space-y-4 mb-8">
-						{contactItems.map(({ Icon, text }) => (
-							<div key={text} className="flex items-center space-x-3 text-white">
+						{contactItems.map(({ Icon, key, text }) => (
+							<div key={key} className="flex items-center space-x-3 text-white">
 								<Icon className="w-6 h-6" />
 								<span className="text-lg">{text}</span>
 							</div>
 						))}
 					</div>
 					<div className="flex flex-col sm:flex-row gap-4">
-						<Button onClick={onWhatsAppClick} size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-4">
+						<Button onClick={() => onWhatsAppClick('contato')} size="lg" className="bg-white text-green-600 hover:bg-gray-100 text-lg px-8 py-4">
 							<MessageCircle className="w-5 h-5 mr-2" />
 							WhatsApp
 						</Button>
-						<Button onClick={onPhoneClick} variant="outline" size="lg" className="border-white text-gray hover:bg-white hover:text-green-600 text-lg px-8 py-4">
+						<Button onClick={() => onPhoneClick('contato')} variant="outline" size="lg" className="border-white text-gray hover:bg-white hover:text-green-600 text-lg px-8 py-4">
 							<Phone className="w-5 h-5 mr-2" />
 							Ligar Agora
 						</Button>
@@ -52,6 +63,7 @@ const Contact = ({ onWhatsAppClick, onPhoneClick }) => (
 			</div>
 		</div>
 	</section>
-);
+	);
+};
 
 export default Contact;

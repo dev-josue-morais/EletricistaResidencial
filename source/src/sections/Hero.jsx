@@ -17,11 +17,11 @@ const Hero = ({ onWhatsAppClick, onPhoneClick }) => (
 						Serviços elétricos residenciais e prediais com segurança, qualidade e preço justo. Atendimento 24 horas em Caldas Novas.
 					</p>
 					<div className="flex flex-col sm:flex-row gap-4 mb-8">
-						<Button onClick={onWhatsAppClick} size="lg" className="cta-button text-white text-lg px-8 py-4">
+						<Button onClick={() => onWhatsAppClick('hero')} size="lg" className="cta-button text-white text-lg px-8 py-4">
 							<MessageCircle className="w-5 h-5 mr-2" />
 							Peça seu Orçamento Grátis
 						</Button>
-						<Button onClick={onPhoneClick} variant="outline" size="lg" className="text-lg px-8 py-4 border-green-500 text-green-600 hover:bg-green-50">
+						<Button onClick={() => onPhoneClick('hero')} variant="outline" size="lg" className="text-lg px-8 py-4 border-green-500 text-green-600 hover:bg-green-50">
 							<Phone className="w-5 h-5 mr-2" />
 							Ligue Agora
 						</Button>

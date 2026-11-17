@@ -3,6 +3,7 @@ import { MessageCircle, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Brand from '@/components/layout/Brand';
 import FooterLink from '@/components/layout/FooterLink';
+import PhoneLink from '@/components/common/PhoneLink';
 import { footerLinks } from '@/data/navigation';
 import { businessHours } from '@/data/businessHours';
 import { PHONE_INTERNATIONAL, LOCATION } from '@/config/contact';
@@ -26,10 +27,10 @@ const Footer = ({ onWhatsAppClick, onPhoneClick, scrollTo }) => (
 						Eletricista profissional em Caldas Novas, oferecendo serviços elétricos de qualidade há mais de 6 anos.
 					</p>
 					<div className="flex space-x-4">
-						<Button onClick={onWhatsAppClick} size="sm" className="bg-green-600 hover:bg-green-700">
+						<Button onClick={() => onWhatsAppClick('rodape')} size="sm" className="bg-green-600 hover:bg-green-700">
 							<MessageCircle className="w-4 h-4" />
 						</Button>
-						<Button onClick={onPhoneClick} size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800">
+						<Button onClick={() => onPhoneClick('rodape')} size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-800">
 							<Phone className="w-4 h-4" />
 						</Button>
 					</div>
@@ -42,7 +43,9 @@ const Footer = ({ onWhatsAppClick, onPhoneClick, scrollTo }) => (
 				</FooterColumn>
 
 				<FooterColumn title="Contato">
-					<li>{PHONE_INTERNATIONAL}</li>
+					<li>
+						<PhoneLink onPhoneClick={onPhoneClick} location="rodape_numero" href={`tel:${PHONE_INTERNATIONAL}`}>{PHONE_INTERNATIONAL}</PhoneLink>
+					</li>
 					<li>{LOCATION}</li>
 					<li>Atendimento 24 horas</li>
 				</FooterColumn>

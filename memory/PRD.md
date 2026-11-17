@@ -11,3 +11,10 @@ assets/index.js (~19 mil linhas, bundle Vite compilado/formatado) sem código-fo
 - Teste: DOM renderizado idêntico (md5) ao original, meta/SEO idênticos, todos os botões abrem os mesmos destinos, scroll idêntico, mobile idêntico
 ## Backlog
 - Publicar via Save to Github
+
+## Conversões Google Ads (iteração 2)
+- GTM-N8PP79HM adicionado (snippet oficial head + noscript), gtag.js original mantido
+- Evento GA4 `generate_lead` + dataLayer `lead_click` (lead_method, lead_location) em todos os botões
+- Número da seção Contato e do rodapé clicáveis (tel:)
+- Botões de ligar discam o número exibido em [data-phone-display] (compatível com número de encaminhamento do Google Ads)
+- Pendente (usuário): criar tag "Chamadas do site" no GTM com número "(64) 99286-9608"
