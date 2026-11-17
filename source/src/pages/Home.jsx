@@ -1,0 +1,41 @@
+import React, { useEffect } from 'react';
+import SeoHead from '@/components/seo/SeoHead';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import Hero from '@/sections/Hero';
+import Services from '@/sections/Services';
+import About from '@/sections/About';
+import Testimonials from '@/sections/Testimonials';
+import Faq from '@/sections/Faq';
+import Contact from '@/sections/Contact';
+import { Toaster } from '@/components/ui/toaster';
+import { openWhatsApp, callPhone } from '@/services/contact';
+import { scrollToSection } from '@/utils/scroll';
+
+const Home = () => {
+	// Ao chegar de outra página com #secao no endereço, rola até a seção.
+	useEffect(() => {
+		if (window.location.hash) scrollToSection(window.location.hash.substring(1));
+	}, []);
+
+	return (
+		<>
+			<SeoHead />
+			<div className="min-h-screen bg-white">
+				<Header onWhatsAppClick={openWhatsApp} scrollTo={scrollToSection} />
+				<main>
+					<Hero onWhatsAppClick={openWhatsApp} onPhoneClick={callPhone} />
+					<Services onWhatsAppClick={openWhatsApp} />
+					<About />
+					<Testimonials />
+					<Faq />
+					<Contact onWhatsAppClick={openWhatsApp} onPhoneClick={callPhone} />
+				</main>
+				<Footer onWhatsAppClick={openWhatsApp} onPhoneClick={callPhone} scrollTo={scrollToSection} />
+				<Toaster />
+			</div>
+		</>
+	);
+};
+
+export default Home;

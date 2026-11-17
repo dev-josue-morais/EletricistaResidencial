@@ -3,6 +3,32 @@
 
 <head>
 	<meta charset="UTF-8" />
+	<!-- Modo de consentimento do Google (LGPD): deve vir antes do Tag Manager e do gtag. Chave igual a src/config/consent.js -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		(function () {
+			var choice = null;
+			try { choice = JSON.parse(localStorage.getItem('ec_consent')); } catch (e) { }
+			var value = choice && choice.status === 'granted' ? 'granted' : 'denied';
+			gtag('consent', 'default', {
+				ad_storage: value,
+				ad_user_data: value,
+				ad_personalization: value,
+				analytics_storage: value,
+				wait_for_update: 500
+			});
+			gtag('set', 'url_passthrough', true);
+			gtag('set', 'ads_data_redaction', value === 'denied');
+		})();
+	</script>
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-N8PP79HM');</script>
+	<!-- End Google Tag Manager -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-34GW7YSWYZ"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
@@ -49,6 +75,8 @@
 	<title>Josué Eletricista</title>
 	<script src="https://static.elfsight.com/platform/platform.js" async></script>
 	<script type="module" crossorigin src="assets/index.js"></script>
+	<link rel="modulepreload" crossorigin href="assets/vendor.js">
+	<link rel="modulepreload" crossorigin href="assets/vendor-react.js">
 	<link rel="stylesheet" href="assets/index.css">
 	<script type="module">
 		window.onerror = (message, source, lineno, colno, errorObj) => {
@@ -180,6 +208,9 @@
 </head>
 
 <body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8PP79HM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 	<div id="root"></div>
 
 </body>
