@@ -31,3 +31,9 @@ assets/index.js (~19 mil linhas, bundle Vite compilado/formatado) sem código-fo
 - gclid só é gravado/código só é gerado com consentimento
 - services/leadSheet.js envia via sendBeacon para Apps Script (source/integrations/google-sheets/Code.gs); LEAD_SHEET_URL em src/config/integrations.js (vazio = desligado)
 - Pendente (usuário): implantar Apps Script e enviar URL; página de Política de Privacidade
+
+## Política de Privacidade (iteração 5)
+- privacidade.html gerado no build (mesmo bundle, body data-page="privacidade"); pages/Home.jsx e pages/PrivacyPolicy.jsx; texto em data/privacyPolicy.js
+- Links: rodapé ("Política de Privacidade" + "Preferências de cookies") e aviso de cookies
+- Planilha: aguardando usuário criar Apps Script e enviar URL /exec
+- Observação: container GTM dispara GA4 extras (G-3RM56F8D4X, G-Y20R1VWPS6) — possível contagem duplicada

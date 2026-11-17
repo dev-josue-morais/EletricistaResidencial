@@ -27,6 +27,13 @@
     color: #4b5563;
 }
 
+.cookie-banner__link {
+    color: #16a34a;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .cookie-banner__actions {
     display: flex;
     gap: 12px;

@@ -18,7 +18,10 @@ const githubPagesHtml = () => ({
 			.filter((chunk) => chunk.type === 'chunk' && !chunk.isEntry)
 			.map((chunk) => `\n\t<link rel="modulepreload" crossorigin href="${chunk.fileName}">`)
 			.join('');
-		this.emitFile({ type: 'asset', fileName: 'index.html', source: template.replace(ENTRY_TAG, ENTRY_TAG + preloads) });
+		const html = template.replace(ENTRY_TAG, ENTRY_TAG + preloads);
+		this.emitFile({ type: 'asset', fileName: 'index.html', source: html });
+		// Mesma aplicação, aberta na página de política de privacidade.
+		this.emitFile({ type: 'asset', fileName: 'privacidade.html', source: html.replace('<body>', '<body data-page="privacidade">') });
 	},
 });
 

@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useConsent } from '@/hooks/useConsent';
 import { setConsent } from '@/services/consent';
 import { CONSENT_GRANTED, CONSENT_DENIED } from '@/config/consent';
+import { PRIVACY_URL } from '@/config/routes';
 
 const CookieBanner = () => {
 	const { bannerOpen } = useConsent();
@@ -23,7 +24,8 @@ const CookieBanner = () => {
 				>
 					<p className="cookie-banner__title">Sua privacidade</p>
 					<p className="cookie-banner__text">
-						Usamos cookies para medir as visitas e o resultado dos nossos anúncios no Google. Você pode aceitar ou recusar; o site funciona normalmente nos dois casos.
+						Usamos cookies para medir as visitas e o resultado dos nossos anúncios no Google. Você pode aceitar ou recusar; o site funciona normalmente nos dois casos.{' '}
+						<a href={PRIVACY_URL} className="cookie-banner__link" data-testid="cookie-banner-privacy-link">Política de Privacidade</a>
 					</p>
 					<div className="cookie-banner__actions">
 						<button type="button" className="cookie-banner__decline" onClick={() => setConsent(CONSENT_DENIED)} data-testid="cookie-decline-btn">
