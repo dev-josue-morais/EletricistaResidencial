@@ -25,8 +25,11 @@ post({...base,lead_code:'EC-DEF456',ad_click_id:'gb1',ad_click_type:'gbraid'});
 post({...base,lead_code:'EC-GHI789',ad_click_id:'gc3',ad_click_type:'gclid'});
 const L=sheets['Leads'].data;
 // onEdit preenche data
-const cell=(r,c)=>({getSheet:()=>({getName:()=> 'Leads'}),getRow:()=>r,getColumn:()=>c,getValue:()=>L[r-1][c-1],offset:(_,dc)=>({getValue:()=>L[r-1][c-1+dc],setValue:(v)=>L[r-1][c-1+dc]=v})});
-L[1][6]='Sim'; ctx.onEdit({range:cell(2,7)}); eq(L[1][7],'2026-06-10 10:00:00-03:00','onEdit preenche fechamento');
+const sh=sheets['Leads']; const rg=(r1,r2,c1,c2)=>({getSheet:()=>sh,getRow:()=>r1,getLastRow:()=>r2,getColumn:()=>c1,getLastColumn:()=>c2});
+L[1][6]='Sim'; L[2][6]='sim'; ctx.onEdit({range:rg(2,3,7,7)}); eq([L[1][7],L[2][7]],['2026-06-10 10:00:00-03:00','2026-06-10 10:00:00-03:00'],'onEdit preenche várias linhas');
+L[2][6]=''; ctx.onEdit({range:rg(3,3,7,7)}); eq(L[2][7],'','onEdit limpa ao desmarcar');
+ctx.onEdit({range:rg(1,1,1,10)}); eq(L[0][7],'Data/Hora do fechamento','cabeçalho intacto');
+eq(ctx.doPost({postData:{contents:'{x'}}),'ignored','JSON inválido');
 L[1][8]='R$ 1.500,00'; L[1][9]='(64) 99286-9608';
 L[2][6]='sim'; L[2][7]='2026-06-09 15:00:00-03:00'; L[2][8]='250'; L[2][9]='64992869608';
 // linha 3 sem sim -> fora

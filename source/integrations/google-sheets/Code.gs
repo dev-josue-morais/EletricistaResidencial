@@ -32,7 +32,12 @@ function getLeadsSheet() {
 }
 
 function doPost(e) {
-  const data = JSON.parse(e.postData.contents);
+  let data;
+  try {
+    data = JSON.parse(e.postData.contents);
+  } catch (err) {
+    return ContentService.createTextOutput('ignored');
+  }
   const valid = Object.keys(PATTERNS).every((key) => PATTERNS[key].test(String(data[key] || '')));
   if (!valid) return ContentService.createTextOutput('ignored');
 
@@ -50,12 +55,22 @@ function doPost(e) {
   }
 }
 
-// Ao marcar "sim" em "Serviço fechado?", preenche a data/hora do fechamento automaticamente.
+// Ao marcar "sim" em "Serviço fechado?", preenche a data/hora do fechamento; ao desmarcar, limpa.
 function onEdit(e) {
   const range = e.range;
-  if (range.getSheet().getName() !== SHEET_NAME || range.getRow() < 2 || range.getColumn() !== COL.closed + 1) return;
-  const closedAt = range.offset(0, 1);
-  if (String(range.getValue()).trim().toLowerCase() === 'sim' && !closedAt.getValue()) closedAt.setValue(now());
+  const sheet = range.getSheet();
+  if (sheet.getName() !== SHEET_NAME) return;
+  const col = COL.closed + 1;
+  if (col < range.getColumn() || col > range.getLastColumn()) return;
+  const first = Math.max(range.getRow(), 2);
+  const count = range.getLastRow() - first + 1;
+  if (count < 1) return;
+  const cells = sheet.getRange(first, col, count, 2);
+  const values = cells.getValues().map(([closed, closedAt]) => {
+    const isClosed = String(closed).trim().toLowerCase() === 'sim';
+    return [closed, isClosed ? closedAt || now() : ''];
+  });
+  cells.setValues(values);
 }
 
 // Telefone brasileiro no formato E.164 (+55DDDNUMERO).
